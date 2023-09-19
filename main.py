@@ -4,7 +4,6 @@ import requests
 from bs4 import BeautifulSoup
 import celery
 
-
 class GameBot:
 
     def __init__(self):
@@ -51,5 +50,9 @@ if __name__ == "__main__":
     schedule = celery.schedules.crontab(hour=8, day_of_week='*', interval=2)
     # Agendamos a tarefa `send_notifications()` para ser executada de acordo com a expressão cron
     celery.task.schedule(schedule, bot.send_notifications)
+
+    # Ligamos o manipulador de mensagens do Telegram
+    bot.bot.on_message(bot.on_message)
+
     # Iniciamos o Celery
     celery.worker.start()
