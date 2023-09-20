@@ -17,7 +17,7 @@ def conferir_jogos_gratis_semana(message):
 #func=lambda message: True sempre automatico
 @bot.message_handler(commands=['ajuda', 'comandos', 'help', 'start'])
 def mensagem_inicial(message):
-    bot.send_message(message.chat.id, f""" Ola! segue os meus comandos: \n/Jogos  - Para saber a rotação da semana """)
+    bot.send_message(message.chat.id, f""" Ola! segue os meus comandos: \n/jogos  - Para saber a rotação da semana """)
     #bot.reply_to(message.chat.id, f""" As Opções  """)
 
 # Inicie o bot
